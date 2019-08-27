@@ -1,6 +1,6 @@
 {
-  "name": "@ckeditor/ckeditor5-react",
-  "version": "2.1.0",
+  "name": "@targetx/ckeditor5-react",
+  "version": "3.1.0",
   "main": "dist/ckeditor.js",
   "description": "Official React component for CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
@@ -20,35 +20,36 @@
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@ckeditor/ckeditor5-build-classic": "^12.0.0",
-    "@ckeditor/ckeditor5-dev-env": "^15.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^11.0.1",
-    "babel-loader": "^8.0.5",
+    "@babel/core": "7.10.3",
+    "@babel/preset-react": "7.10.1",
+    "@ckeditor/ckeditor5-dev-env": "21.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "21.0.0",
+    "@targetx/ckeditor5-build-classic": "20.0.0",
+    "babel-loader": "8.1.0",
     "chai": "^4.1.2",
+    "copy-webpack-plugin": "5.1.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "istanbul-instrumenter-loader": "^3.0.0",
-    "karma": "^4.0.0",
+    "karma": "5.1.0",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.1",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-coverage": "2.0.2",
     "karma-coveralls": "^2.0.0",
     "karma-firefox-launcher": "^1.0.1",
-    "karma-mocha": "^1.3.0",
+    "karma-mocha": "2.0.1",
     "karma-mocha-reporter": "^2.2.4",
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^3.0.0",
-    "minimist": "^1.2.0",
-    "mocha": "^5.2.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "sinon": "^7.2.3",
-    "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^4.16.0",
-    "webpack-cli": "^3.1.0"
+    "karma-webpack": "4.0.2",
+    "minimist": "1.2.5",
+    "mocha": "8.0.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sinon": "9.0.2",
+    "terser-webpack-plugin": "3.0.6",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12"
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -69,7 +70,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-react.git"
+    "url": "https://github.com/targetx/fork-ckeditor5-react.git"
   },
   "files": [
     "dist"
@@ -77,7 +78,7 @@
   "author": "CKSource (http://cksource.com/)",
   "license": "GPL-2.0-or-later",
   "bugs": {
-    "url": "https://github.com/ckeditor/ckeditor5-react/issues"
+    "url": "https://github.com/targetx/fork-ckeditor5-react/issues"
   },
-  "homepage": "https://github.com/ckeditor/ckeditor5-react"
+  "homepage": "https://github.com/targetx/fork-ckeditor5-react"
 }

@@ -3,73 +3,76 @@
  * For licensing, see LICENSE.md.
  */
 
-'use strict';
+"use strict";
 
 /* eslint-env node */
 
-const path = require( 'path' );
-const webpack = require( 'webpack' );
-const { bundler } = require( '@ckeditor/ckeditor5-dev-utils' );
-const UglifyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
+const path = require("path");
+const webpack = require("webpack");
+const { bundler } = require("@ckeditor/ckeditor5-dev-utils");
+// const UglifyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
+const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	context: __dirname,
 
-	devtool: 'source-map',
+	devtool: "source-map",
 	performance: { hints: false },
 	externals: {
 		react: {
-			root: 'React',
-			commonjs2: 'react',
-			commonjs: 'react',
-			amd: 'react'
+			root: "React",
+			commonjs2: "react",
+			commonjs: "react",
+			amd: "react"
 		}
 	},
 
-	entry: path.join( __dirname, 'src', 'ckeditor.jsx' ),
+	entry: path.join(__dirname, "src", "ckeditor.jsx"),
 
 	output: {
-		library: 'CKEditor',
+		library: "CKEditor",
 
-		path: path.join( __dirname, 'dist' ),
-		filename: 'ckeditor.js',
-		libraryTarget: 'umd',
-		libraryExport: 'default',
-
+		path: path.join(__dirname, "dist"),
+		filename: "ckeditor.js",
+		libraryTarget: "umd",
+		libraryExport: "default"
 	},
 
 	optimization: {
 		minimizer: [
-			new UglifyJsWebpackPlugin( {
+			new TerserPlugin({
 				sourceMap: true,
-				uglifyOptions: {
+				terserOptions: {
 					output: {
 						// Preserve CKEditor 5 license comments.
 						comments: /^!/
 					}
-				}
-			} )
+				},
+				extractComments: false
+			})
 		]
 	},
 
 	plugins: [
-		new webpack.BannerPlugin( {
+		new webpack.BannerPlugin({
 			banner: bundler.getLicenseBanner(),
 			raw: true
-		} ),
+		}),
+		new CopyPlugin([{ from: "src/*.d.ts", to: "./", flatten: true }])
 	],
 
 	module: {
 		rules: [
 			{
 				test: /\.jsx$/,
-				loader: 'babel-loader',
+				loader: "babel-loader",
 				exclude: /node_modules/,
 				query: {
 					compact: false,
-					presets: [ '@babel/preset-react' ]
+					presets: ["@babel/preset-react"]
 				}
 			}
 		]
-	},
+	}
 };
